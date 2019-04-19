@@ -17,7 +17,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 
-@Kroll.module(name = "Watchdogholder", id = "de.appwerft.watchdog")
+@Kroll.module(name = "Watchdog", id = "de.appwerft.watchdog")
 public class WatchdogModule extends KrollModule {
 
 	public WatchdogModule() {

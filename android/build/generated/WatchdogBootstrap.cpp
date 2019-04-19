@@ -24,13 +24,13 @@ using namespace v8;
 
 static Persistent<Object> bindingCache;
 
-static void Watchdogholder_getBinding(const FunctionCallbackInfo<Value>& args)
+static void Watchdog_getBinding(const FunctionCallbackInfo<Value>& args)
 {
 	Isolate* isolate = args.GetIsolate();
 	EscapableHandleScope scope(isolate);
 
 	if (args.Length() == 0) {
-		titanium::JSException::Error(isolate, "Watchdogholder.getBinding requires 1 argument: binding");
+		titanium::JSException::Error(isolate, "Watchdog.getBinding requires 1 argument: binding");
 		args.GetReturnValue().Set(scope.Escape(Undefined(isolate)));
 		return;
 	}
@@ -53,7 +53,7 @@ static void Watchdogholder_getBinding(const FunctionCallbackInfo<Value>& args)
 	v8::String::Utf8Value bindingValue(isolate, binding);
 	LOGD(TAG, "Looking up binding: %s", *bindingValue);
 
-	titanium::bindings::BindEntry *extBinding = titanium::bindings::WatchdogholderBindings::lookupGeneratedInit(
+	titanium::bindings::BindEntry *extBinding = titanium::bindings::WatchdogBindings::lookupGeneratedInit(
 		*bindingValue, bindingValue.length());
 
 	if (!extBinding) {
@@ -70,7 +70,7 @@ static void Watchdogholder_getBinding(const FunctionCallbackInfo<Value>& args)
 	return;
 }
 
-static void Watchdogholder_init(Local<Object> exports, Local<Context> context)
+static void Watchdog_init(Local<Object> exports, Local<Context> context)
 {
 	Isolate* isolate = context->GetIsolate();
 	HandleScope scope(isolate);
@@ -83,11 +83,11 @@ static void Watchdogholder_init(Local<Object> exports, Local<Context> context)
 		exports->Set(name, source);
 	}
 
-	Local<FunctionTemplate> constructor = FunctionTemplate::New(isolate, Watchdogholder_getBinding);
+	Local<FunctionTemplate> constructor = FunctionTemplate::New(isolate, Watchdog_getBinding);
 	exports->Set(String::NewFromUtf8(isolate, "getBinding"), constructor->GetFunction(context).ToLocalChecked());
 }
 
-static void Watchdogholder_dispose(Isolate* isolate)
+static void Watchdog_dispose(Isolate* isolate)
 {
 	HandleScope scope(isolate);
 	if (bindingCache.IsEmpty()) {
@@ -102,7 +102,7 @@ static void Watchdogholder_dispose(Isolate* isolate)
 		int bindingLength = binding.length();
 
 		titanium::bindings::BindEntry *extBinding =
-			titanium::bindings::WatchdogholderBindings::lookupGeneratedInit(*binding, bindingLength);
+			titanium::bindings::WatchdogBindings::lookupGeneratedInit(*binding, bindingLength);
 
 		if (extBinding && extBinding->dispose) {
 			extBinding->dispose(isolate);
@@ -112,17 +112,17 @@ static void Watchdogholder_dispose(Isolate* isolate)
 	bindingCache.Reset();
 }
 
-static titanium::bindings::BindEntry WatchdogholderBinding = {
+static titanium::bindings::BindEntry WatchdogBinding = {
 	"de.appwerft.watchdog",
-	Watchdogholder_init,
-	Watchdogholder_dispose
+	Watchdog_init,
+	Watchdog_dispose
 };
 
 // Main module entry point
 extern "C" JNIEXPORT void JNICALL
-Java_de_appwerft_watchdog_WatchdogholderBootstrap_nativeBootstrap
+Java_de_appwerft_watchdog_WatchdogBootstrap_nativeBootstrap
 	(JNIEnv *env, jobject self)
 {
-	titanium::KrollBindings::addExternalBinding("de.appwerft.watchdog", &WatchdogholderBinding);
-	titanium::KrollBindings::addExternalLookup(&(titanium::bindings::WatchdogholderBindings::lookupGeneratedInit));
+	titanium::KrollBindings::addExternalBinding("de.appwerft.watchdog", &WatchdogBinding);
+	titanium::KrollBindings::addExternalLookup(&(titanium::bindings::WatchdogBindings::lookupGeneratedInit));
 }

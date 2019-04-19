@@ -10,7 +10,7 @@ package de.appwerft.watchdog;
 
 import org.appcelerator.kroll.KrollExternalModule;
 
-public class WatchdogholderBootstrap implements KrollExternalModule
+public class WatchdogBootstrap implements KrollExternalModule
 {
 	public void bootstrap()
 	{

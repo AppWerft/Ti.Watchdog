@@ -16,9 +16,9 @@ function moduleBootstrap(moduleBinding) {
 			name, namespace, moduleBinding.getBinding);
 	}
 
-	var module = moduleBinding.getBinding("de.appwerft.watchdog.WatchdogModule")["Watchdogholder"];
+	var module = moduleBinding.getBinding("de.appwerft.watchdog.WatchdogModule")["Watchdog"];
 	var invocationAPIs = module.invocationAPIs = [];
-	module.apiName = "Watchdogholder";
+	module.apiName = "Watchdog";
 
 	function addInvocationAPI(module, moduleNamespace, namespace, api) {
 		invocationAPIs.push({ namespace: namespace, api: api });

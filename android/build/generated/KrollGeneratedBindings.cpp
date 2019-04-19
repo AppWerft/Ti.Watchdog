@@ -37,12 +37,12 @@ namespace titanium {
 			}
 		};
 
-		class WatchdogholderBindings {
+		class WatchdogBindings {
 			public:
 				static BindEntry* lookupGeneratedInit(const char*, unsigned int);
 		};
 
-		BindEntry* WatchdogholderBindings::lookupGeneratedInit(const char* name, unsigned int length) {
+		BindEntry* WatchdogBindings::lookupGeneratedInit(const char* name, unsigned int length) {
 			static BindEntry binds[] = {
 				{"de.appwerft.watchdog.WatchdogModule", ::de::appwerft::watchdog::WatchdogModule::bindProxy, ::de::appwerft::watchdog::WatchdogModule::dispose}
 			};

@@ -1,5 +1,5 @@
-/Users/fuerst/Documents/MLearning/Ti.Watchdog/android/build/generated/obj/local/x86/objs/de.appwerft.watchdog/__/WatchdogholderBootstrap.o: \
- jni/../WatchdogholderBootstrap.cpp \
+/Users/fuerst/Documents/MLearning/Ti.Watchdog/android/build/generated/obj/local/x86/objs/de.appwerft.watchdog/__/WatchdogBootstrap.o: \
+ jni/../WatchdogBootstrap.cpp \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/8.0.0.GA/android/native/include/v8.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdio.h \

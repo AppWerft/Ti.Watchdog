@@ -1,11 +1,8 @@
-/Users/fuerst/Documents/MLearning/Ti.Watchdog/android/build/generated/obj/local/armeabi-v7a/objs/de.appwerft.watchdog/__/WatchdogholderBootstrap.o: \
- jni/../WatchdogholderBootstrap.cpp \
+/Users/fuerst/Documents/MLearning/Ti.Watchdog/android/build/generated/obj/local/arm64-v8a/objs/de.appwerft.watchdog/__/WatchdogBootstrap.o: \
+ jni/../WatchdogBootstrap.cpp \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/8.0.0.GA/android/native/include/v8.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdio.h \
- /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wchar.h \
- /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h \
- /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/xlocale.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/memory \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__config \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/type_traits \
@@ -20,6 +17,7 @@
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/iterator \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__functional_base \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/iosfwd \
+ /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wchar.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/initializer_list \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/tuple \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cstring \
@@ -49,6 +47,7 @@
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cwctype \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cctype \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/ctype.h \
+ /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/8.0.0.GA/android/native/include/V8Util.h \
  jni/../BootstrapJS.cpp jni/../KrollGeneratedBindings.cpp \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/unordered_map \
@@ -66,12 +65,6 @@
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h:
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdio.h:
-
-/Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wchar.h:
-
-/Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h:
-
-/Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/xlocale.h:
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/memory:
 
@@ -100,6 +93,8 @@
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__functional_base:
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/iosfwd:
+
+/Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wchar.h:
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/initializer_list:
 
@@ -158,6 +153,8 @@
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cctype:
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/ctype.h:
+
+/Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h:
 
 /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/8.0.0.GA/android/native/include/V8Util.h:
 

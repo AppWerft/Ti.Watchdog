@@ -50,7 +50,7 @@ void WatchdogModule::bindProxy(Local<Object> exports, Local<Context> context)
 		return;
 	}
 
-	Local<String> nameSymbol = NEW_SYMBOL(isolate, "Watchdogholder"); // use symbol over string for efficiency
+	Local<String> nameSymbol = NEW_SYMBOL(isolate, "Watchdog"); // use symbol over string for efficiency
 	MaybeLocal<Object> maybeInstance = constructor->NewInstance(context);
 	Local<Object> moduleInstance;
 	if (!maybeInstance.ToLocal(&moduleInstance)) {
@@ -83,7 +83,7 @@ Local<FunctionTemplate> WatchdogModule::getProxyTemplate(v8::Isolate* isolate)
 	EscapableHandleScope scope(isolate);
 
 	// use symbol over string for efficiency
-	Local<String> nameSymbol = NEW_SYMBOL(isolate, "Watchdogholder");
+	Local<String> nameSymbol = NEW_SYMBOL(isolate, "Watchdog");
 
 	Local<FunctionTemplate> t = titanium::Proxy::inheritProxyTemplate(
 		isolate,
