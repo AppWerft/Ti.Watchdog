@@ -9,7 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
 
-
+// https://stackoverflow.com/questions/4459058/alarm-manager-example
 public class Watchdog extends BroadcastReceiver {
 	private boolean debug;
 	private int interval;
