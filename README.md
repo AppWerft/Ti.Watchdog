@@ -63,3 +63,5 @@ function requestIgnoreBatteryOptimizations() {
 
 * some manufactures (Samsung Huawei, Nokia) ignore this white list.
 * this intent has no result
+
+More: [here](https://stackoverflow.com/questions/41596509/android-m-startactivity-battery-optimization)
