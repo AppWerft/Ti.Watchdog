@@ -1,4 +1,4 @@
-# Ti.Wakeup
+# Ti.Watchdog
 
 
 ## Install
