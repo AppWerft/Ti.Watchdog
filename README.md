@@ -24,7 +24,7 @@ Example:
 
 ```xml
 <modules>
-  <module>de.appwerft.wakeholder</module>
+  <module>de.appwerft.watchdog</module>
 </modules>
 ```
 
