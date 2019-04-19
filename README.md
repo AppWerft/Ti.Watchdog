@@ -43,3 +43,4 @@ Ping.start({
 // and optional 
 Ping.stopp();
 ```
+You can use `start()` without parameters. In this case it uses the default parameters (10 min, debuging on) 
