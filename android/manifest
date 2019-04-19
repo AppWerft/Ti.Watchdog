@@ -15,4 +15,4 @@ name: watchdog
 moduleid: de.appwerft.watchdog
 guid: a6747d8e-c02f-47a6-9ab7-74da569c6f44
 platform: android
-minsdk: 7.1.0
+minsdk: 7.5.1.GA
