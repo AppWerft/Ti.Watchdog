@@ -34,4 +34,12 @@ and assets into the application.
 
 ## Example Usage
 
-This module starts an AlarmManager which "pings" every 10 minutes. You don't need a require. The cronjob and with destroying of app. 
+```js
+import Ping from 'de.appwerft.watchdog';
+Ping.start({
+	interval : 10*1000*60, // ms
+	debug : true
+});
+// and optional 
+Ping.stopp();
+```
