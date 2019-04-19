@@ -1,5 +1,6 @@
 # Ti.Watchdog
 
+This module tries to solve [this issue](https://jira.appcelerator.org/browse/AC-6187?filter=-2)
 
 ## Install
 
