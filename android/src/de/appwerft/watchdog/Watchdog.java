@@ -14,10 +14,6 @@ public class Watchdog extends BroadcastReceiver {
 		PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
 		PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
 		wl.acquire();
-
-		// Put here YOUR code.
-		//Toast.makeText(context, "Alarm !!!!!!!!!!", Toast.LENGTH_LONG).show(); // For example
-
 		wl.release();
 	}
 
