@@ -1,4 +1,4 @@
-<project name="wakeholder" default="dist">
+<project name="watchdog" default="dist">
 	<description>
 		Ant build script for Titanium Android module wakeholder
 	</description>
