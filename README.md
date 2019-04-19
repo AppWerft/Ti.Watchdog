@@ -44,3 +44,22 @@ Ping.start({
 Ping.stopp();
 ```
 You can use `start()` without parameters. In this case it uses the default parameters (10 min, debuging on) 
+
+## Alternatives
+
+```javascript
+function requestIgnoreBatteryOptimizations() {
+	if (Ti.Platform.Android.API_LEVEL >= 23) {
+		const intent = Ti.Android.createIntent({
+			action : "android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
+			data : "package:" + Ti.App.Android.launchIntent.packageName,
+		});
+		Ti.Android.currentActivity.startActivity(intent);
+		Ti.App.Properties.setBool('IgnoreBatteryOptimizations', true);
+	}
+}
+```
+### Disadvantages
+
+* some manufactures (Samsung Huawei, Nokia) ignore this white list.
+* this intent has no result
