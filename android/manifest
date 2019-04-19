@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.0.2
+version: 1.1.0
 apiversion: 4
 architectures: arm64-v8a armeabi-v7a x86
 description: Watchdog, avoids killing of of by Android, starts AlarmManager
@@ -15,4 +15,4 @@ name: watchdog
 moduleid: de.appwerft.watchdog
 guid: a6747d8e-c02f-47a6-9ab7-74da569c6f44
 platform: android
-minsdk: 7.5.0.GA
+minsdk: 7.0.0.
