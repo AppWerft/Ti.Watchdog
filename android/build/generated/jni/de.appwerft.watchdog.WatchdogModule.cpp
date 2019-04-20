@@ -95,7 +95,7 @@ Local<FunctionTemplate> WatchdogModule::getProxyTemplate(v8::Isolate* isolate)
 	t->Set(titanium::Proxy::inheritSymbol.Get(isolate), FunctionTemplate::New(isolate, titanium::Proxy::inherit<WatchdogModule>));
 
 	// Method bindings --------------------------------------------------------
-	titanium::SetProtoMethod(isolate, t, "stopp", WatchdogModule::stopp);
+	titanium::SetProtoMethod(isolate, t, "stop", WatchdogModule::stop);
 	titanium::SetProtoMethod(isolate, t, "start", WatchdogModule::start);
 
 	Local<ObjectTemplate> prototypeTemplate = t->PrototypeTemplate();
@@ -120,9 +120,9 @@ Local<FunctionTemplate> WatchdogModule::getProxyTemplate(v8::Local<v8::Context> 
 }
 
 // Methods --------------------------------------------------------------------
-void WatchdogModule::stopp(const FunctionCallbackInfo<Value>& args)
+void WatchdogModule::stop(const FunctionCallbackInfo<Value>& args)
 {
-	LOGD(TAG, "stopp()");
+	LOGD(TAG, "stop()");
 	Isolate* isolate = args.GetIsolate();
 	Local<Context> context = isolate->GetCurrentContext();
 	HandleScope scope(isolate);
@@ -134,9 +134,9 @@ void WatchdogModule::stopp(const FunctionCallbackInfo<Value>& args)
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
-		methodID = env->GetMethodID(WatchdogModule::javaClass, "stopp", "()V");
+		methodID = env->GetMethodID(WatchdogModule::javaClass, "stop", "()V");
 		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'stopp' with signature '()V'";
+			const char *error = "Couldn't find proxy method 'stop' with signature '()V'";
 			LOGE(TAG, error);
 				titanium::JSException::Error(isolate, error);
 				return;

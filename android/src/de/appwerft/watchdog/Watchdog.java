@@ -14,30 +14,31 @@ public class Watchdog extends BroadcastReceiver {
 	private boolean debug;
 	private int interval;
 	private static final String LCAT = WatchdogModule.LCAT;
-	
+
 	private void L(String txt) {
-		if (debug) Log.d(LCAT,txt);
+		if (debug)
+			Log.d(LCAT, txt);
 	}
+
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		L("onAlarmReceived");
-		PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-		PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
+		PowerManager.WakeLock wl = ((PowerManager) context.getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
 		wl.acquire();
 		wl.release();
 	}
 
 	public void start(Context context) {
-		start(context,true,60*1000*10);
+		start(context, true, 60 * 1000 * 10);
 	}
-	public void start(Context context,boolean debug,int interval) {
+
+	public void start(Context ctx, boolean debug, int interval) {
 		this.debug = debug;
 		this.interval = interval;
-		AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-		Intent i = new Intent(context, Watchdog.class);
-		PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-		am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), this.interval, pi); // Millisec * Second *
-		L("started");// Minute
+		((AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE)).setInexactRepeating(AlarmManager.RTC_WAKEUP,
+				System.currentTimeMillis(), this.interval,
+				PendingIntent.getBroadcast(ctx, 0, new Intent(ctx, Watchdog.class), 0));
+		L("started");
 	}
 
 	public void stopp(Context context) {
