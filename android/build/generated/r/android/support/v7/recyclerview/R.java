@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package android.support.graphics.drawable;
+package android.support.v7.recyclerview;
 
 public final class R {
     public static final class anim {

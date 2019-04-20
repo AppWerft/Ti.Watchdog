@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package android.support.graphics.drawable;
+package ti.modules.titanium.ui;
 
 public final class R {
     public static final class anim {
