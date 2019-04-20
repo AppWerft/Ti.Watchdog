@@ -22,10 +22,11 @@ public class Watchdog extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		PowerManager.WakeLock wakeLock = ((PowerManager) context.getSystemService(Context.POWER_SERVICE))
+				.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
+		wakeLock.acquire();
+		wakeLock.release();
 		L("onAlarmReceived");
-		PowerManager.WakeLock wl = ((PowerManager) context.getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
-		wl.acquire();
-		wl.release();
 	}
 
 	public void start(Context context) {
