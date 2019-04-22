@@ -11,7 +11,7 @@ import android.os.PowerManager;
 
 // https://stackoverflow.com/questions/4459058/alarm-manager-example
 public class Watchdog extends BroadcastReceiver {
-	private boolean debug;
+	private boolean debug =true;
 	private int interval;
 	private static final String LCAT = WatchdogModule.LCAT;
 
@@ -22,15 +22,17 @@ public class Watchdog extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		L("onreceive");
 		PowerManager.WakeLock wakeLock = ((PowerManager) context.getSystemService(Context.POWER_SERVICE))
 				.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
 		wakeLock.acquire();
 		wakeLock.release();
-		L("onAlarmReceived");
+		L("acquire…released");
 	}
 
 	public void start(Context context) {
-		start(context, true, 60 * 1000 * 10);
+		start(context, true, 60 * 1000 );
+	
 	}
 
 	public void start(Context ctx, boolean debug, int interval) {
