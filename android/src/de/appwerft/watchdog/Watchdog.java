@@ -23,7 +23,6 @@ public class Watchdog extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		L("onreceive");
 		PowerManager.WakeLock wakeLock = ((PowerManager) context.getSystemService(Context.POWER_SERVICE))
 				.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
 		wakeLock.acquire();
@@ -41,12 +40,14 @@ public class Watchdog extends BroadcastReceiver {
 		this.interval = interval;
 		AlarmManager cronjob = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
 		long now = System.currentTimeMillis();
-		PendingIntent operation = PendingIntent.getBroadcast(ctx, REQUESTCODE, new Intent(ctx, Watchdog.class), 0);
+		Intent intent =  new Intent(ctx, Watchdog.class);
+		PendingIntent operation = PendingIntent.getBroadcast(ctx, REQUESTCODE,intent, 0);
+		// RTC_WAKEUP—Wakes up the device to fire the pending intent at the specified time.
 		if (exact == true)
 			cronjob.setRepeating(AlarmManager.RTC_WAKEUP, now, this.interval, operation);
 		else
 			cronjob.setInexactRepeating(AlarmManager.RTC_WAKEUP, now, this.interval, operation);
-		L("AlarmManager started");
+		L("AlarmManager started, exact=" + exact);
 	}
 
 	public void stop(Context context) {
