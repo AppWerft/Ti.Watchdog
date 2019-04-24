@@ -35,16 +35,17 @@ and assets into the application.
 ## Example Usage
 
 ```js
-import Ping from 'de.appwerft.watchdog';
-Ping.start({
+import SleepDeprivation from 'de.appwerft.watchdog';
+SleepDeprivation.start({
 	interval : 10*1000*60, // ms
 	debug : true,
-	exact : false
+	exact : false,
+	startdelay : 0
 });
 // and optional 
-Ping.stop();
+SleepDeprivation.stop();
 ```
-You can use `start()` without parameters. In this case it uses the default parameters (10 min, debuging on) 
+You can use `start()` without parameters. In this case it uses the default parameters (10 min, debuging on, inexact, immediately) 
 
 ## Alternatives
 
@@ -60,7 +61,7 @@ function requestIgnoreBatteryOptimizations() {
 	}
 }
 ```
-### Disadvantages
+### Disadvantages of this dialog
 
 * some manufactures (Samsung Huawei, Nokia) ignore this white list.
 * this intent has no result
