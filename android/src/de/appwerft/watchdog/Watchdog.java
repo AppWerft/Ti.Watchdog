@@ -15,7 +15,7 @@ public class Watchdog extends BroadcastReceiver {
 	private int interval;
 	private static final String LCAT = WatchdogModule.LCAT;
 
-	private void L(String txt) {	
+	private void L(String txt) {
 		if (debug)
 			Log.d(LCAT, txt);
 	}
@@ -31,17 +31,17 @@ public class Watchdog extends BroadcastReceiver {
 	}
 
 	public void start(Context context) {
-		start(context, true, 60 * 1000 );
-	
+		start(context, true, 60 * 1000);
+
 	}
 
 	public void start(Context ctx, boolean debug, int interval) {
 		this.debug = debug;
 		this.interval = interval;
-		AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
-		am.setInexactRepeating(AlarmManager.RTC_WAKEUP,
-				System.currentTimeMillis(), this.interval,
-				PendingIntent.getBroadcast(ctx, 0, new Intent(ctx, Watchdog.class), 0));
+		AlarmManager cronjob = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+		long now = System.currentTimeMillis();
+		PendingIntent operation = PendingIntent.getBroadcast(ctx, 0, new Intent(ctx, Watchdog.class), 0);
+		cronjob.setInexactRepeating(AlarmManager.RTC_WAKEUP, now, this.interval, operation);
 		L("AlarmManager started");
 	}
 
