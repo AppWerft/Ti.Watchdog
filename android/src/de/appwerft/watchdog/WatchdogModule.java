@@ -16,11 +16,12 @@ public class WatchdogModule extends KrollModule {
 
 	public WatchdogModule() {
 		super();
+		Log.d(LCAT,"WatchdogModule created");
 	}
 
 	private static Context ctx;
 	private Watchdog watchdog = null;
-	private int interval = 600000;
+	private int interval = 60000;
 	static final String LCAT = "🐕TiWatchdog";
 	private boolean debug = true;
 
@@ -31,7 +32,7 @@ public class WatchdogModule extends KrollModule {
 
 	public void onDestroy(Activity activity) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-			watchdog.stopp(ctx);
+			watchdog.stop(ctx);
 		}
 	}
 
@@ -46,6 +47,7 @@ public class WatchdogModule extends KrollModule {
 			}
 		}
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			Log.d(LCAT,"started with interval " + Math.round(interval/1000) + " sec.");
 			watchdog = new Watchdog();
 			watchdog.start(ctx, debug, interval);
 		} else
@@ -55,6 +57,6 @@ public class WatchdogModule extends KrollModule {
 	@Kroll.method
 	public void stop() {
 		if (watchdog != null && ctx !=null)
-			watchdog.stopp(ctx);
+			watchdog.stop(ctx);
 	}
 }

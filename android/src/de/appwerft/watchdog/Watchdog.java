@@ -11,11 +11,11 @@ import android.os.PowerManager;
 
 // https://stackoverflow.com/questions/4459058/alarm-manager-example
 public class Watchdog extends BroadcastReceiver {
-	private boolean debug =true;
+	private boolean debug = true;
 	private int interval;
 	private static final String LCAT = WatchdogModule.LCAT;
 
-	private void L(String txt) {
+	private void L(String txt) {	
 		if (debug)
 			Log.d(LCAT, txt);
 	}
@@ -44,7 +44,7 @@ public class Watchdog extends BroadcastReceiver {
 		L("started");
 	}
 
-	public void stopp(Context context) {
+	public void stop(Context context) {
 		L("stopped");
 		Intent intent = new Intent(context, Watchdog.class);
 		PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
