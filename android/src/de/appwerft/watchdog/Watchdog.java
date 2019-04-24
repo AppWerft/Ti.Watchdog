@@ -38,10 +38,11 @@ public class Watchdog extends BroadcastReceiver {
 	public void start(Context ctx, boolean debug, int interval) {
 		this.debug = debug;
 		this.interval = interval;
-		((AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE)).setInexactRepeating(AlarmManager.RTC_WAKEUP,
+		AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+		am.setInexactRepeating(AlarmManager.RTC_WAKEUP,
 				System.currentTimeMillis(), this.interval,
 				PendingIntent.getBroadcast(ctx, 0, new Intent(ctx, Watchdog.class), 0));
-		L("started");
+		L("AlarmManager started");
 	}
 
 	public void stop(Context context) {
