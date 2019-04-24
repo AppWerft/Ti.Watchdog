@@ -29,6 +29,12 @@ Example:
 </modules>
 ```
 
+### Entry in AndroidManifest
+
+```xml
+<receiver android:name="de.appwerft.watchdog.Watchdog"/>
+```
+
 When you run your project, the compiler will combine your module along with its dependencies
 and assets into the application.
 
