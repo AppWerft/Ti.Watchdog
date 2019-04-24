@@ -24,6 +24,8 @@ public class WatchdogModule extends KrollModule {
 	private int interval = 60000;
 	static final String LCAT = "🐕TiWatchdog";
 	private boolean debug = true;
+	private boolean exact = false;
+	
 
 	@Kroll.onAppCreate
 	public static void onAppCreate(TiApplication app) {
@@ -45,11 +47,14 @@ public class WatchdogModule extends KrollModule {
 			if (opts.containsKeyAndNotNull("debug")) {
 				debug = opts.getBoolean("debug");
 			}
+			if (opts.containsKeyAndNotNull("exact")) {
+				exact = opts.getBoolean("exact");
+			}
 		}
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			Log.d(LCAT,"started with interval " + Math.round(interval/1000) + " sec.");
 			watchdog = new Watchdog();
-			watchdog.start(ctx, debug, interval);
+			watchdog.start(ctx, debug, interval,exact);
 		} else
 			Log.d(LCAT, "API < Oreo, we don't need the watchdog");
 	}

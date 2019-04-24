@@ -38,7 +38,8 @@ and assets into the application.
 import Ping from 'de.appwerft.watchdog';
 Ping.start({
 	interval : 10*1000*60, // ms
-	debug : true
+	debug : true,
+	exact : false
 });
 // and optional 
 Ping.stop();

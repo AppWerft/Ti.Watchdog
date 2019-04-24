@@ -13,7 +13,7 @@ import android.os.PowerManager;
 public class Watchdog extends BroadcastReceiver {
 	private boolean debug = true;
 	private int interval;
-	private static final int REQUESTCODE =123456;
+	private static final int REQUESTCODE = 123456;
 	private static final String LCAT = WatchdogModule.LCAT;
 
 	private void L(String txt) {
@@ -32,17 +32,20 @@ public class Watchdog extends BroadcastReceiver {
 	}
 
 	public void start(Context context) {
-		start(context, true, 60 * 1000);
+		start(context, true, 60 * 1000, false);
 
 	}
 
-	public void start(Context ctx, boolean debug, int interval) {
+	public void start(Context ctx, boolean debug, int interval, boolean exact) {
 		this.debug = debug;
 		this.interval = interval;
 		AlarmManager cronjob = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
 		long now = System.currentTimeMillis();
 		PendingIntent operation = PendingIntent.getBroadcast(ctx, REQUESTCODE, new Intent(ctx, Watchdog.class), 0);
-		cronjob.setRepeating(AlarmManager.RTC_WAKEUP, now, this.interval, operation);
+		if (exact == true)
+			cronjob.setRepeating(AlarmManager.RTC_WAKEUP, now, this.interval, operation);
+		else
+			cronjob.setInexactRepeating(AlarmManager.RTC_WAKEUP, now, this.interval, operation);
 		L("AlarmManager started");
 	}
 
